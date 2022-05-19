@@ -1,5 +1,5 @@
 [package]
-name = "server"
+name = "hello"
 version = "0.1.0"
 edition = "2021"
 
@@ -10,6 +10,3 @@ actix = "0.12.0"
 actix-web = "4.0.0-beta.9"
 actix-web-actors = "4.0.0-beta.7"
 lazy_static = "1.4.0"
-serde = "*"
-serde_derive = "*"
-serde_json = "*"

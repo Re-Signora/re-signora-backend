@@ -1,4 +1,4 @@
-use server::{create_app};
+use hello::{create_app};
 
 #[actix_web::main]
 async fn main() {

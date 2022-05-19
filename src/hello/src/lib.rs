@@ -3,7 +3,7 @@ use actix_web::{App, HttpRequest, HttpResponse, HttpServer, get, web};
 use crate::ws_conn::WsConn;
 
 #[macro_use]
-mod command_generate;
+mod codegen;
 mod ws_conn;
 mod cmd;
 mod router;
