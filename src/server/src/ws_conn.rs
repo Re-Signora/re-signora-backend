@@ -1,6 +1,6 @@
+use crate::router::CMD_MAP;
 use actix::{Actor, Addr, AsyncContext, StreamHandler};
 use actix_web_actors::ws::{self, Message, WebsocketContext};
-use crate::router::CMD_MAP;
 
 pub struct WsConn {
     pub nick: String,
@@ -27,7 +27,7 @@ impl StreamHandler<Result<Message, ws::ProtocolError>> for WsConn {
                 println!("received: {}", text);
                 let req = WsRequest::from_str(&text);
                 req.run_cmd(ctx.address());
-            },
+            }
             Ok(Message::Ping(msg)) => ctx.pong(&msg),
             Ok(Message::Binary(bin)) => ctx.binary(bin),
             Ok(Message::Close(reason)) => ctx.close(reason),
@@ -37,8 +37,8 @@ impl StreamHandler<Result<Message, ws::ProtocolError>> for WsConn {
 }
 
 pub struct WsRequest {
-	pub cmd: String,
-	pub data: String,
+    pub cmd: String,
+    pub data: String,
 }
 
 impl WsRequest {
