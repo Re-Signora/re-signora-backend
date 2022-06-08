@@ -7,11 +7,9 @@ edition = "2021"
 
 [workspace]
 members = [
-    "src/server",
-    "src/hello"
+    "src/server"
 ]
 
 [dependencies]
 server = { path = "src/server" }
-hello = { path = "src/hello" }
 actix-web = "4.0.0-beta.9"
