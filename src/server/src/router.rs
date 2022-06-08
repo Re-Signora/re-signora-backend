@@ -62,7 +62,7 @@ impl Chat {
 }
 
 impl Cmd for Chat {
-    fn name(&self) -> &'static str { stringify!(Chat) }
+    fn name(&self) -> &'static str { Chat::get_cmd() }
 
     fn route(addr: Addr<WsConn>, data: String) {
         addr.do_send(Chat::new(data))
