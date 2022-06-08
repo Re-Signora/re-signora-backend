@@ -62,7 +62,7 @@ impl Chat {
 }
 
 impl Cmd for Chat {
-    fn name(&self) -> &'static str { stringify!(Say) }
+    fn name(&self) -> &'static str { stringify!(Chat) }
 
     fn route(addr: Addr<WsConn>, data: String) {
         addr.do_send(Chat::new(data))
@@ -72,7 +72,7 @@ impl Cmd for Chat {
 lazy_static::lazy_static! {
     pub static ref CMD_MAP: HashMap<&'static str, fn(addr: Addr<WsConn>, data: String)> = {
         let mut map = HashMap::new();
-        map.insert(stringify!(Say), Chat::route as fn(addr: Addr<WsConn>, data: String));
+        map.insert(Chat::get_cmd(), Chat::route as fn(addr: Addr<WsConn>, data: String));
         map
     };
 }

@@ -13,6 +13,8 @@ mod handler;
 pub async fn create_app() {
     let (addr, port) = ("0.0.0.0", "8080");
 
+    println!("Starting server on {}:{}", &addr, &port);
+
     let _ = HttpServer::new(move || {
         App::new()
             .service(index)
